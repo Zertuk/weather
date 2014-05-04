@@ -27,6 +27,12 @@ var getData = function(weather) {
 	}
 	else {
 		var currentTemp = weather.data.current_condition[0].temp_F;
-		console.log(currentTemp);
+		var cloud = weather.data.current_condition[0].cloudcover;
+		var time = weather.data.current_condition[0].observation_time;
+		$('#fetch').remove();
+		$('#ground').css("background-color", "#017501");
+		$('body').css("background-color", "#6698FF");
+		console.log(time);
+		$('#current_temp').text(currentTemp + '\u00B0');
 	}
 }
