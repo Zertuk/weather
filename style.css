@@ -1,0 +1,51 @@
+body {
+	max-width: 100%;
+	background-color: black;
+}
+
+.wrapper {
+	max-width: 100%;
+}
+
+#fetch {
+	margin-top: 25%;
+
+}
+
+#location_input {
+	margin: 0 auto;
+	width: 195px;
+	display: block;
+	text-align: center;
+	font-family: 'Oswald', sans-serif;
+	font-size: 20px;
+	border: 2px solid white;
+	border-radius: 4px;
+	color: white;
+	background-color: black;
+
+}
+
+button {
+	margin: 0 auto;
+	width: 200px;
+	display: block;
+	margin-top: 5px;
+	background-color: black;
+	border: 2px solid white;
+	border-radius: 4px;
+	font-family: 'Oswald', sans-serif;
+	font-size: 20px;
+	color: white;
+
+
+}
+
+button:hover {
+	background-color: grey;
+}
+
+button:active {
+	background-color: darkgrey;
+}
+
