@@ -31,9 +31,9 @@ var getData = function(weather) {
 		$('#error').text('');
 		var currentTemp = weather.data.current_condition[0].temp_F;
 		var cloud = weather.data.current_condition[0].cloudcover;
-		var sky = ["#6698FF", "#B6B6B4", "#98AFC7"];
+		var sky = ["#6698FF", "#8C8C8B", "#98AFC7"];
 		$("#fetch").animate({			
-			"margin-top": "0px"		
+			"margin-top": "0px"
 		})
 
 		if (cloud > 75) {
@@ -48,6 +48,17 @@ var getData = function(weather) {
 			$('body').css("background-color", sky[0]);
 			$('#other').text("PRETTY BRIGHT");
 		}
+		var tempColor = function() {
+	if (currentTemp >= 50) {
+		$('#current_temp').css("color", "#FFA600");
+		$('#other').css("color", "#FFA600");
+	}
+	else {
+		$('#current_temp').css("color", "#00A2FF");
+		$('#other').css("color", "#00A2FF");
+	}
+}
+		tempColor();
 		$('#current_temp').text(currentTemp + '\u00B0');
 	}
 }
