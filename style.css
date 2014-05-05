@@ -11,11 +11,13 @@ body {
 }
 
 #fetch {
-	margin-top: 25%;
+	margin-top: 15%;
+	height: 100px;
+
 }
 
 #weather {
-	height: 500px;
+	height: 400px;
 }
 
 #location_input {
@@ -65,7 +67,7 @@ button:active {
 	font-family: 'Oswald', sans-serif;
 	font-size: 50px;
 	text-align: center;
-	margin-top: 25%;
+	margin-top: 10%;
 }
 
 #other {

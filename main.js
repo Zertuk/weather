@@ -15,13 +15,18 @@ $(document).ready(function() {
 		else {
 		script.src = 'http://api.worldweatheronline.com/free/v1/weather.ashx?q=' + zip + '&format=json&callback=getData&key=j8xvysb7t9jp2dvw7pwcbgs3'
 		document.body.appendChild(script);
+
 		}
+		script = null;
+		$(script).remove();;
+		script = document.createElement('script');
 	})
 });
 
 var getData = function(weather) {
 	if ('error' in weather.data) {
 		$('#error').text('LOCATION INVALID, TRY AGAIN');
+		return;
 	}
 	else {
 		var currentTemp = weather.data.current_condition[0].temp_F;
@@ -29,9 +34,9 @@ var getData = function(weather) {
 		var time = weather.data.current_condition[0].observation_time;
 		var areaName = weather.data.areaName;
 		console.log(areaName);
-		$('#fetch').remove();
 		var sky = ["#6698FF", "#B6B6B4", "#98AFC7"];
 		console.log(cloud);
+		$("#fetch").css("margin-top", "0px");
 		if (cloud > 75) {
 			$('body').css("background-color", sky[1]);
 			$('#other').text("HOW BORING");
