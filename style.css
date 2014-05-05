@@ -12,7 +12,10 @@ body {
 
 #fetch {
 	margin-top: 25%;
+}
 
+#weather {
+	height: 500px;
 }
 
 #location_input {
@@ -26,7 +29,6 @@ body {
 	border-radius: 4px;
 	color: white;
 	background-color: black;
-
 }
 
 #error {
@@ -34,7 +36,6 @@ body {
 	height: 20px;
 	text-align: center;
 	font-family: 'Oswald', sans-serif;
-
 }
 
 button {
@@ -48,8 +49,6 @@ button {
 	font-family: 'Oswald', sans-serif;
 	font-size: 20px;
 	color: white;
-
-
 }
 
 button:hover {
@@ -66,35 +65,26 @@ button:active {
 	font-family: 'Oswald', sans-serif;
 	font-size: 50px;
 	text-align: center;
-	margin-top: 30%;
+	margin-top: 25%;
 }
 
-#ground {
-	background-color: black;
-	height: 200px;
-	max-width: 100%;
-	margin-top: 300px;
-	
-}
+#other {
+	color: white;
+	text-align: center;
+	font-family: 'Oswald', sans-serif;
+	font-size: 20px;
+	margin-top: -20px;
 
-#sun {
-	width: 100px;
-	height: 100px;
-	margin-left: 30px;
-	margin-top: -50px;
-	border-radius: 100px;
-	background-color: yellow;
-	position: absolute;
-	display: none;
 }
-
 
 footer {
+	margin-top: -200px;
 	color: white;
 	text-decoration: none;
 	font-family: 'Oswald', sans-serif;
 	font-size: 12px;
-	background-color: black;
+	text-align: center;
+	height: 20px;
 }
 
 footer a {
@@ -103,4 +93,9 @@ footer a {
 
 footer a:hover {
 	color: orange;
+}
+
+footer p {
+	display: inline;
+	margin-right: 10px;
 }
