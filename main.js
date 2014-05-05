@@ -28,36 +28,38 @@ var getData = function(weather) {
 		return;
 	}
 	else {
+		weather.preventDefault;
 		$('#error').text('');
 		var currentTemp = weather.data.current_condition[0].temp_F;
 		var cloud = weather.data.current_condition[0].cloudcover;
+		var condition = weather.data.current_condition[0].weatherDesc[0].value.toUpperCase();
+		console.log(condition);
 		var sky = ["#6698FF", "#8C8C8B", "#98AFC7"];
 		$("#fetch").animate({			
 			"margin-top": "0px"
-		})
-
+		}, 750, 'linear')
 		if (cloud > 75) {
 			$('body').css("background-color", sky[1]);
-			$('#other').text("HOW BORING");
+			$('#other').text("HOW BORING AND ITS " + condition);
 		}
 		else if (cloud > 40) {
 			$('body').css("background-color", sky[2]);
-			$('#other').text("PRETTY GOOD");
+			$('#other').text("PRETTY GOOD AND ITS " + condition);
 		}
 		else {
 			$('body').css("background-color", sky[0]);
-			$('#other').text("PRETTY BRIGHT");
+			$('#other').text("PRETTY BRIGHT AND ITS " +condition);
 		}
 		var tempColor = function() {
-	if (currentTemp >= 50) {
-		$('#current_temp').css("color", "#FFA600");
-		$('#other').css("color", "#FFA600");
+		if (currentTemp >= 50) {
+			$('#current_temp').css("color", "#FFA600");
+			$('#other').css("color", "#FFA600");
+		}
+		else {
+			$('#current_temp').css("color", "#00A2FF");
+			$('#other').css("color", "#00A2FF");
+		}
 	}
-	else {
-		$('#current_temp').css("color", "#00A2FF");
-		$('#other').css("color", "#00A2FF");
-	}
-}
 		tempColor();
 		$('#current_temp').text(currentTemp + '\u00B0');
 	}
