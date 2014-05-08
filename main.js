@@ -38,7 +38,14 @@ var getData = function(weather) {
 		var condition = weather.data.current_condition[0].weatherDesc[0].value.toUpperCase();
 		console.log(condition);
 		var sky = ["#6698FF", "#8C8C8B", "#98AFC7"];
-
+		var i = 0;
+		var weatherArray = [];
+		for (var i = 0; i < 5; i++) {
+			weatherArray[i] = weather.data.weather[i];
+			console.log(weatherArray[i].weatherDesc);
+		}
+		var test = weather.data.weather[1].tempMaxF;
+		console.log(test);
 		$("#fetch").animate({			
 			"margin-top": "0px"
 		}, 750, 'linear')
