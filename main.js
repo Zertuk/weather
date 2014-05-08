@@ -38,18 +38,25 @@ var getData = function(weather) {
 		var condition = weather.data.current_condition[0].weatherDesc[0].value.toUpperCase();
 		console.log(condition);
 		var sky = ["#6698FF", "#8C8C8B", "#98AFC7"];
-		var i = 0;
 		var weatherArray = [];
+		var tempMaxArray = [];
+		var tempMinArray = [];
+
+
 		for (var i = 0; i < 5; i++) {
 			weatherArray[i] = weather.data.weather[i];
-			console.log(weatherArray[i].weatherDesc);
+			tempMaxArray[i] = weatherArray[i].tempMaxF + ' ';
+			tempMinArray[i] = weatherArray[i].tempMinF + ' ';
 		}
-		var test = weather.data.weather[1].tempMaxF;
-		console.log(test);
-		$("#fetch").animate({			
+		$('#five_day').text('Five Day Forecast')
+		$('#max').text('Max: ' + tempMaxArray);
+		$('#min').text('Min: ' + tempMinArray);
+
+		
+		//animates search button/input up
+		$('#fetch').animate({			
 			"margin-top": "0px"
 		}, 750, 'linear')
-
 		//chooses message and bg-color based on the current condition, then displays message
 		if (cloud > 75) {
 			$('body').css("background-color", sky[1]);
@@ -71,12 +78,10 @@ var getData = function(weather) {
 			if (currentTemp >= 50) {
 				$('#current_temp').css("color", "#FFA600");
 				$('#other').css("color", "#FFA600");
-
 			}
 			else {
 				$('#current_temp').css("color", "#00A2FF");
 				$('#other').css("color", "#00A2FF");
-
 			}
 		}
 		tempColor();
