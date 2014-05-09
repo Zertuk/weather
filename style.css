@@ -70,6 +70,8 @@ button:active {
 	color: black;
 }
 
+
+
 #current_temp {
 	color: white;
 	font-family: 'Oswald', sans-serif;
@@ -86,7 +88,15 @@ button:active {
 	margin-top: -20px;
 
 }
-#five_day {
+
+#wind {
+	text-align: center;
+	color: white;
+	font-size: 20px;
+	margin-bottom: -25px;
+}
+
+#five_day{
 	text-align: center;
 	color: white;
 	font-size: 30px;

@@ -41,6 +41,8 @@ var getData = function(weather) {
 		var weatherArray = [];
 		var tempMaxArray = [];
 		var tempMinArray = [];
+		var windspeedMiles = weather.data.current_condition[0].windspeedMiles;
+
 
 
 		for (var i = 0; i < 5; i++) {
@@ -48,11 +50,10 @@ var getData = function(weather) {
 			tempMaxArray[i] = weatherArray[i].tempMaxF + ' ';
 			tempMinArray[i] = weatherArray[i].tempMinF + ' ';
 		}
-		$('#five_day').text('Five Day Forecast')
-		$('#max').text('Max: ' + tempMaxArray);
-		$('#min').text('Min: ' + tempMinArray);
+		$('#five_day').text('FIVE DAY FORECAST')
+		$('#max').text('MAX: ' + tempMaxArray);
+		$('#min').text('MIN: ' + tempMinArray);
 
-		
 		//animates search button/input up
 		$('#fetch').animate({			
 			"margin-top": "0px"
@@ -61,7 +62,7 @@ var getData = function(weather) {
 		if (cloud > 75) {
 			$('body').css("background-color", sky[1]);
 			$('#other').text(condition + " , HOW BORING");
-
+			
 		}
 		else if (cloud > 40) {
 			$('body').css("background-color", sky[2]);
@@ -73,6 +74,9 @@ var getData = function(weather) {
 			$('#other').text(condition + " , PRETTY BRIGHT");
 
 		}
+
+		$('#wind').text(windspeedMiles + ' MPH WIND');
+
 		//chooses warm/cold color for font depending on temp
 		var tempColor = function() {
 			if (currentTemp >= 50) {
