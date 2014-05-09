@@ -23,6 +23,7 @@ $(document).ready(function() {
 		script = document.createElement('script');
 	})
 });
+
 //gets data from api
 var getData = function(weather) {
 	if ('error' in weather.data) {
@@ -31,25 +32,27 @@ var getData = function(weather) {
 
 	}
 	else {
+		//init variables, reset error text
 		weather.preventDefault;
 		$('#error').text('');
 		var currentTemp = weather.data.current_condition[0].temp_F;
 		var cloud = weather.data.current_condition[0].cloudcover;
 		var condition = weather.data.current_condition[0].weatherDesc[0].value.toUpperCase();
-		console.log(condition);
 		var sky = ["#6698FF", "#8C8C8B", "#98AFC7"];
 		var weatherArray = [];
 		var tempMaxArray = [];
 		var tempMinArray = [];
 		var windspeedMiles = weather.data.current_condition[0].windspeedMiles;
+		var windDir = weather.data.current_condition[0].winddir16Point;
 
-
-
+		//runs through whole 5 day forecast and fills array with data
+		//then takes out and fills arrays with maxtemp and mintemp data from all 5 days
 		for (var i = 0; i < 5; i++) {
 			weatherArray[i] = weather.data.weather[i];
 			tempMaxArray[i] = weatherArray[i].tempMaxF + ' ';
 			tempMinArray[i] = weatherArray[i].tempMinF + ' ';
 		}
+		//displays 5 day forecast max/min temps
 		$('#five_day').text('FIVE DAY FORECAST')
 		$('#max').text('MAX: ' + tempMaxArray);
 		$('#min').text('MIN: ' + tempMinArray);
@@ -58,6 +61,7 @@ var getData = function(weather) {
 		$('#fetch').animate({			
 			"margin-top": "0px"
 		}, 750, 'linear')
+
 		//chooses message and bg-color based on the current condition, then displays message
 		if (cloud > 75) {
 			$('body').css("background-color", sky[1]);
@@ -75,7 +79,8 @@ var getData = function(weather) {
 
 		}
 
-		$('#wind').text(windspeedMiles + ' MPH WIND');
+		//wind direction and speed
+		$('#wind').text(windspeedMiles + ' MPH ' + windDir + ' ' + 'WIND');
 
 		//chooses warm/cold color for font depending on temp
 		var tempColor = function() {
@@ -88,7 +93,9 @@ var getData = function(weather) {
 				$('#other').css("color", "#00A2FF");
 			}
 		}
+
 		tempColor();
+		//current temp displayed
 		$('#current_temp').text(currentTemp + '\u00B0');
 
 	}
